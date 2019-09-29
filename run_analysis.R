@@ -113,5 +113,9 @@ X['label']<- replace(X['label'],c(1,2,3,4,5,6), c("WALKING", "WALKING_UPSTAIRS",
 
 ## Average for each activity and each subject
 
-X_AVG <- X %>% group_by(label, subject) %>% summarise_all("mean" ) %>% print()
+X_AVG <- X %>% group_by(label, subject) %>% summarise_all("mean" )
 
+## Write results to .txt files
+
+write.table(X,file = "X.txt", row.names = FALSE)
+write.table(X_AVG,file = "X_AVG.txt", row.names = FALSE)
